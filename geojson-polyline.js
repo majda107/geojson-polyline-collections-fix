@@ -57,20 +57,20 @@ function geo2poly (geojson, options) {
     }
     case 'Feature': {
       return assign({}, geojson, {
-        geometry: geo2poly(geojson.geometry, precision)
+        geometry: geo2poly(geojson.geometry, {precision})
       })
     }
     case 'FeatureCollection': {
       return assign({}, geojson, {
         features: geojson.features.map(function (feature) {
-          return geo2poly(feature, precision)
+          return geo2poly(feature, {precision})
         })
       })
     }
     case 'GeometryCollection': {
       return assign({}, geojson, {
         geometries: geojson.geometries.map(function (geo) {
-          return geo2poly(geo, precision)
+          return geo2poly(geo, {precision})
         })
       })
     }
@@ -135,20 +135,20 @@ function poly2geo (geojson, options) {
     // GeoJSON object is
     case 'Feature': {
       return assign({}, geojson, {
-        geometry: poly2geo(geojson.geometry, precision)
+        geometry: poly2geo(geojson.geometry, {precision})
       })
     }
     case 'FeatureCollection': {
       return assign({}, geojson, {
         features: geojson.features.map(function (feature) {
-          return poly2geo(feature, precision)
+          return poly2geo(feature, {precision})
         })
       })
     }
     case 'GeometryCollection': {
       return assign({}, geojson, {
         geometries: geojson.geometries.map(function (geometry) {
-          return poly2geo(geometry, precision)
+          return poly2geo(geometry, {precision})
         })
       })
     }
